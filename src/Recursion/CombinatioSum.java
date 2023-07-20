@@ -1,6 +1,6 @@
 package Recursion;
 import java.util.*;
-class combinatioSum {
+public class CombinatioSum {
     private static void findCombinations(int ind, int[] arr, int target, List < List < Integer >> ans, List < Integer > ds) {
         if (ind == arr.length) {
             if (target == 0) {
