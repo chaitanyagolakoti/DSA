@@ -6,21 +6,17 @@ public class LinkedListImplementation {
     public LinkedListImplementation() {
         this.size = 0;
     }
-
     private class Node {
         private Node next;
         private int val;
-
         public Node(int val) {
             this.val = val;
         }
-
         public Node(int val, Node next) {
             this.val = val;
             this.next = next;
         }
     }
-
     public void display() {
         Node currentNode = head;
         while (currentNode != null) {
@@ -35,7 +31,6 @@ public class LinkedListImplementation {
         head = newNode;
         size += 1;
     }
-
     public void insertAtend(int val) {
         Node newNode = new Node(val);
         if (head == null) {
