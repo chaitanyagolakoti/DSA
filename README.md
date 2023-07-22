@@ -1,5 +1,5 @@
 
-#DSA
+## DSA
 Welcome to the DSA Concepts Masterclass repository! Here, you will find a curated collection of important coding problems from various platforms carefully chosen to help you deepen your understanding of Data Structures and Algorithms (DSA) concepts.
 
 
