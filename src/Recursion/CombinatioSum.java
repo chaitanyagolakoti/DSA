@@ -3,15 +3,14 @@ import java.util.*;
 public class CombinatioSum {
     private static void findCombinations(int ind, int[] arr, int target, List < List < Integer >> ans, List < Integer > ds) {
         if (ind == arr.length) {
-            if (target == 0) {
+            if (target == 0 && ds.size()==3) {
                 ans.add(new ArrayList < > (ds));
             }
             return;
         }
-
         if (arr[ind] <= target) {
             ds.add(arr[ind]);
-            findCombinations(ind, arr, target - arr[ind], ans, ds);
+            findCombinations(ind+1, arr, target - arr[ind], ans, ds);
             ds.remove(ds.size() - 1);
         }
         findCombinations(ind + 1, arr, target, ans, ds);
@@ -29,8 +28,9 @@ public class CombinatioSum {
 //            arr[i] = sc.nextInt();
 //        }
 //        int target = sc.nextInt();
-        int arr[] = {2,3,6,7,1,5,4};
-        List<List<Integer>> ans = combinationSum(arr,7);
-        System.out.println(ans);
+        int arr[] = {7,14,21,19,17,2,29,5};
+        int arr2[] = {10,7,9,5,2};
+        List<List<Integer>> ans = combinationSum(arr,21);
+        System.out.println(ans.size());
     }
 }

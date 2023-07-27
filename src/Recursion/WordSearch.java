@@ -28,7 +28,7 @@ public class WordSearch {
                 wordexist(board,word,i,j+1,index+1) ||
                 wordexist(board,word,i,j-1,index+1) );
 
-        board[i][j] = temp; // Mark the cell as visited
+        board[i][j] = temp; // Mark the cell as unvisited
         return found;
     }
     public static void main(String[] args) {
