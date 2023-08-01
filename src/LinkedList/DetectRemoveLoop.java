@@ -2,20 +2,23 @@ package LinkedList;
 
 import java.util.Scanner;
 
-public class Findfirstnodeofloop {
+public class DetectRemoveLoop {
     private ListNode head;
-    private static class ListNode{
+    private static class ListNode {
         private int val;
         private ListNode next;
-        public ListNode(int val){
+
+        public ListNode(int val) {
             this.val = val;
             this.next = null;
         }
-        public ListNode(int val, ListNode next){
+
+        public ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }
     }
+
     void push(int val) {
         ListNode newNode = new ListNode(val);
         if (head == null) {
@@ -36,42 +39,46 @@ public class Findfirstnodeofloop {
         }
         System.out.println("null");
     }
+    public ListNode removeLoop(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
 
-    public ListNode find(ListNode head){
-        ListNode slow = head;
-        ListNode fast = head;
-        boolean hasLoop = false;
-        while(fast.next!=null && fast.next.next !=null){
+        ListNode fast = head, slow = head;
+
+        while (fast != null && fast.next != null) {
+            ListNode prv = slow;
             slow = slow.next;
             fast = fast.next.next;
-            if(slow==fast){
-                hasLoop = true;
-                break;
+
+            if (slow == fast) {
+                fast = head;
+                while (slow.next != fast.next) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                if (slow == head && fast == head){
+                    prv.next = null;
+                }
+                else {
+                    slow.next = null;
+                }
+                return head;
             }
         }
-        if(!hasLoop){
-            return null;
-        }
-        if(hasLoop){
-            slow = head;
-            while (slow != fast) {
-                slow = slow.next;
-                fast = fast.next;
-            }
-        }
-//        System.out.println(fast.val);
-        return slow;
+        return head;
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // Create the first linked list
-        Findfirstnodeofloop list = new Findfirstnodeofloop();
+        DetectRemoveLoop list = new DetectRemoveLoop();
         ListNode head = new ListNode(1);
         ListNode second = new ListNode(2);
         ListNode third = new ListNode(3);
         ListNode fourth = new ListNode(4);
         ListNode fifth = new ListNode(5);
         ListNode sixth = new ListNode(6);
+        ListNode seventh = new ListNode(7);
 
         // Build the linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6
         head.next = second;
@@ -81,12 +88,8 @@ public class Findfirstnodeofloop {
         fifth.next = sixth;
 
         // Create a loop in the linked list by connecting the last node to the second node
-        sixth.next = second;
-        ListNode startOfLoop = list.find(head);
-        if (startOfLoop != null) {
-            System.out.println("Starting node of the loop: " + startOfLoop.val);
-        } else {
-            System.out.println("No loop found in the linked list.");
-        }
+        sixth.next = seventh;
+        sixth.next = third;
+        list.display(list.removeLoop(head));
     }
 }

@@ -66,10 +66,8 @@ public class RevKgrps {
             newHead = newHead.next;
             count++;
         }
-
-        if (count == k) {
+        if (count == k) { //only the groups of size k will be reversed remaining are left alone
             ListNode curr = reverseKGroupRec(newHead, k); // Recursively reverse the remaining part
-
             // Reverse the current group
             while (count > 0) {
                 ListNode nextNode = head.next;
@@ -80,7 +78,6 @@ public class RevKgrps {
             }
             head = curr;
         }
-
         return head;
     }
 
@@ -111,7 +108,7 @@ public class RevKgrps {
         start.next.next= new ListNode(3);
         start.next.next.next = new ListNode(4);
         start.next.next.next.next = new ListNode(5);
-        list.display(list.reverseKGroupRec(start,2));
+        list.display(list.reverseKGroupRec(start,3));
 
     }
 }
