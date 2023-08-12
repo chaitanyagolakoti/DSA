@@ -3,7 +3,7 @@ import java.util.*;
 public class CombinatioSum {
     private static void findCombinations(int ind, int[] arr, int target, List < List < Integer >> ans, List < Integer > ds) {
         if (ind == arr.length) {
-            if (target == 0 && ds.size()==3) {
+            if (target == 0) {
                 ans.add(new ArrayList < > (ds));
             }
             return;
@@ -28,9 +28,9 @@ public class CombinatioSum {
 //            arr[i] = sc.nextInt();
 //        }
 //        int target = sc.nextInt();
-        int arr[] = {7,14,21,19,17,2,29,5};
+        int arr[] = {1,1,1};
         int arr2[] = {10,7,9,5,2};
-        List<List<Integer>> ans = combinationSum(arr,21);
+        List<List<Integer>> ans = combinationSum(arr,2);
         System.out.println(ans.size());
     }
 }
