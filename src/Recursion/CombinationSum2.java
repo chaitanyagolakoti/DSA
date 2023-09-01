@@ -26,8 +26,8 @@ public class CombinationSum2 {
         return ans;
     }
     public static void main(String[] args) {
-        int arr[] = {1,1,1};
-        List<List<Integer>> ans = combinationSum2(arr,2);
+        int arr[] = {2,2,2,2,2};
+        List<List<Integer>> ans = combinationSum2(arr,8);
         System.out.println(ans);
     }
 }

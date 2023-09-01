@@ -10,7 +10,7 @@ public class CombinatioSum {
         }
         if (arr[ind] <= target) {
             ds.add(arr[ind]);
-            findCombinations(ind+1, arr, target - arr[ind], ans, ds);
+            findCombinations(ind, arr, target - arr[ind], ans, ds);
             ds.remove(ds.size() - 1);
         }
         findCombinations(ind + 1, arr, target, ans, ds);
@@ -28,9 +28,9 @@ public class CombinatioSum {
 //            arr[i] = sc.nextInt();
 //        }
 //        int target = sc.nextInt();
-        int arr[] = {1,1,1};
+        int arr[] = {1,0,-1,0,-2,2};
         int arr2[] = {10,7,9,5,2};
-        List<List<Integer>> ans = combinationSum(arr,2);
+        List<List<Integer>> ans = combinationSum(arr,0);
         System.out.println(ans.size());
     }
 }
